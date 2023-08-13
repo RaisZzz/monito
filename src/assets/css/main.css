@@ -1,0 +1,161 @@
+@import url('@/assets/css/fonts.css');
+@import url('@/assets/css/settings.css');
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity var(--transition);
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.container {
+    --padding: 16px;
+
+    max-width: calc(1180px + var(--padding) * 2);
+    width: 100%;
+    padding: 0 var(--padding);
+    margin: 0 auto;
+}
+
+.input {
+    border-radius: 46px;
+    outline: none;
+    border: none;
+    background-color: var(--ui-bg);
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--main-text);
+    transition: var(--transition);
+    border: 2px solid var(--ui-bg);
+}
+
+.input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.input:focus {
+    border-color: var(--primary-color);
+}
+
+.button {
+    border-radius: 57px;
+    padding: 10px 28px;
+    color: var(--ui-bg);
+    background-color: var(--primary-color);
+    font-weight: bold;
+    font-size: 16px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.button svg {
+    width: 18px;
+    height: auto;
+    fill: var(--ui-bg);
+    stroke: var(--ui-bg);
+    transition: var(--transition);
+}
+
+.button:hover {
+    background-color: var(--ui-bg);
+    color: var(--primary-color);
+}
+
+.button:hover svg {
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
+}
+
+.button.small {
+    font-weight: 300;
+}
+
+.button.secondary {
+    border: 1.5px solid var(--primary-color);
+    background: none;
+    color: var(--primary-color);
+}
+
+.button.secondary svg {
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
+}
+
+.button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--ui-bg);
+}
+
+.button.secondary:hover svg {
+    fill: var(--ui-bg);
+    stroke: var(--ui-bg);
+}
+
+.button.more-btn {
+    font-size: 14px;
+}
+
+.button .more-btn__icon {
+    width: 4px;
+    height: auto;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--main-text);
+}
+
+.content-box {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    background-color: var(--ui-bg);
+    border-radius: 12px;
+    box-shadow: 0px 4px 28px -2px #00000014;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content-box:hover {
+    box-shadow: none;
+}
+
+.content-box__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.content-box-info {
+    padding: 8px 8px 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content-box__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-align: left;
+}

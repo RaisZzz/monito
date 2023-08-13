@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'SVN-Gilroy';
+    font-style: normal;
+    font-weight: 300;
+    font-display: auto;
+    src: local('SVN-Gilroy'), url('@/assets/fonts/SVNGilroy-Light.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'SVN-Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-display: auto;
+    src: local('SVN-Gilroy'), url('@/assets/fonts/SVNGilroy-Bold.woff') format('woff');
+}

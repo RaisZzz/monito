@@ -1,0 +1,41 @@
+:root {
+    --primary-color: #003459;
+    --main-text: #00171F;
+    --secondary-color: #F7DBA7;
+    --ui-bg: #FDFDFD;
+    --placeholder-color: #99A2A5;
+    --secondary-text: #667479;
+    --secondary-gradient: #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%;
+    --accent-color: #00A7E7;
+    --transition: 0.3s;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16;
+    font-weight: 500;
+    color: var(--main-text);
+    font-family: 'SVN-Gilory', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-text);
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
