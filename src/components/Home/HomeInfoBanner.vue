@@ -172,4 +172,75 @@ export default {
     right: 20%;
     transform: translateX(50%);
 }
+
+@media screen and (max-width: 1020px) {
+    .info-banner {
+        padding: 20px;
+    }
+
+    .info:before {
+        right: -400px;
+    }
+
+    .info__title {
+        font-size: 40px;
+    }
+
+    .info__subtitle {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .info-container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .info-banner {
+        flex-direction: column-reverse;
+        padding-bottom: 0;
+    }
+
+    .info {
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .info__image {
+        position: initial;
+        width: 100%;
+        height: auto;
+        transform: none;
+        margin-top: -60px;
+        z-index: 9;
+    }
+
+    .info__title {
+        font-size: 36px;
+    }
+
+    .info__subtitle {
+        font-size: 24px;
+    }
+
+    .info-buttons {
+        margin-top: 32px;
+    }
+
+    .info-buttons {
+        gap: 16px;
+    }
+
+    .info:before {
+        width: 200vw;
+        height: 635px;
+        border-radius: 75px;
+        right: auto;
+        top: 0;
+        transform: rotate(11deg) translate(-75%, -35%);
+        left: 50%;
+    }
+}
 </style>

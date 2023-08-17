@@ -1,10 +1,10 @@
 <template>
     <div class="content-box article">
-        <img v-if="article?.image" :src="article.image" alt="" class="content-box__image article__image">
+        <img v-if="article.image" :src="article.image" alt="" class="content-box__image article__image">
         <div class="content-box-info article-info">
-            <p v-if="article?.category" class="article__category">{{ article.category }}</p>
-            <h3 v-if="article?.title" class="content-box__title">{{ article.title }}</h3>
-            <p v-if="article?.description" class="article__description" ref="description">{{ description }}</p>
+            <p v-if="article.category" class="article__category">{{ article.category }}</p>
+            <h3 v-if="article.title" class="content-box__title">{{ article.title }}</h3>
+            <p v-if="article.description" class="article__description" ref="description">{{ description }}</p>
         </div>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         setDescription() {
-            this.description = this.article.description
+            this.description = this.articleDescription
             this.checkHeight()
         },
         checkHeight() {
@@ -46,12 +46,14 @@ export default {
             })
         }
     },
+    computed: {
+        articleDescription() {
+            return this.article.description
+        }
+    },
     watch: {
-        article: {
-            deep: true,
-            handler: function () {
-                this.setDescription()
-            }
+        articleDescription() {
+            this.setDescription()
         }
     }
 }

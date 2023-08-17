@@ -37,8 +37,15 @@
     color: var(--placeholder-color);
 }
 
-.input:focus {
+.input:focus,
+.input.secondary:focus {
     border-color: var(--primary-color);
+}
+
+.input.secondary {
+    border-color: var(--placeholder-color);
+    border-width: 1px;
+    border-radius: 8px;
 }
 
 .button {
@@ -63,12 +70,12 @@
     transition: var(--transition);
 }
 
-.button:hover {
+.button:not(:disabled):hover {
     background-color: var(--ui-bg);
     color: var(--primary-color);
 }
 
-.button:hover svg {
+.button:not(:disabled):hover svg {
     fill: var(--primary-color);
     stroke: var(--primary-color);
 }
@@ -88,14 +95,20 @@
     stroke: var(--primary-color);
 }
 
-.button.secondary:hover {
+.button.secondary:not(:disabled):hover {
     background-color: var(--primary-color);
     color: var(--ui-bg);
 }
 
-.button.secondary:hover svg {
+.button.secondary:not(:disabled):hover svg {
     fill: var(--ui-bg);
     stroke: var(--ui-bg);
+}
+
+.button:disabled,
+.button.secondary:disabled {
+    opacity: 0.5;
+    cursor: initial;
 }
 
 .button.more-btn {
@@ -158,4 +171,18 @@
     font-weight: 700;
     margin-bottom: 4px;
     text-align: left;
+}
+
+@media screen and (max-width: 700px) {
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .content-box__title {
+        font-size: 14px;
+    }
 }

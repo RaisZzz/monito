@@ -62,6 +62,7 @@ export default {
     cursor: pointer;
     min-width: 110px;
     min-height: 40px;
+    height: 100%;
 }
 
 .ui-select__icon {

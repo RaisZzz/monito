@@ -195,4 +195,78 @@ export default {
     position: relative;
     z-index: 1;
 }
+
+@media screen and (max-width: 1200px) {
+    .banner-info {
+        max-width: 350px;
+    }
+
+    .banner__title {
+        font-size: 40px;
+    }
+
+    .banner__subtitle {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+
+    .banner__bg-wrapper:before,
+    .banner__bg-wrapper:after {
+        width: 400px;
+        height: 400px;
+        border-radius: 50px;
+    }
+
+    .banner__bg-wrapper {
+        margin-right: 40px;
+    }
+
+    .banner-info {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .banner .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner-info {
+        max-width: 100%;
+        width: 100%;
+        margin-top: 140px;
+    }
+
+    .banner__title {
+        font-size: 46px;
+    }
+
+    .banner__subtitle {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .banner__description {
+        font-size: 12px;
+        margin-bottom: 32px;
+    }
+
+    .banner-buttons {
+        gap: 16px;
+    }
+
+    .banner__bg-wrapper {
+        margin-top: 25px;
+        margin-right: 0;
+        width: 100%;
+        max-width: 370px;
+    }
+
+    .banner__title:before {
+        display: none;
+    }
+}
 </style>

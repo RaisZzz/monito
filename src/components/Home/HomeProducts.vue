@@ -17,6 +17,10 @@
             <div v-else class="products-grid articles">
                 <ArticleItem v-for="(article, index) in products" :key="index" :article="article" />
             </div>
+            <button v-if="!withoutMore" class="button small secondary more-btn mobile" @click="more">
+                View more
+                <IconRightArrow class="more-btn__icon" />
+            </button>
         </div>
     </div>
 </template>
@@ -84,5 +88,48 @@ export default {
 
 .products-grid.articles {
     grid-template-columns: repeat(3, 1fr);
+}
+
+.more-btn.mobile {
+    display: none;
+    margin-top: 16px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .products {
+        margin: 40px 0;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 12px;
+    }
+
+    .more-btn {
+        display: none;
+    }
+
+    .products-top {
+        margin-bottom: 20px;
+    }
+
+    .product__price {
+        font-size: 16px;
+    }
+
+    .more-btn.mobile {
+        display: flex;
+    }
+
+    .products-grid.articles {
+        grid-template-columns: 1fr;
+    }
 }
 </style>

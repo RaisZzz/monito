@@ -5,10 +5,10 @@
         <HomeInfoBanner title="One more friend" subtitle="Thousands more fun!"
             description="Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!"
             :image="require('@/assets/img/info-1.png')" />
-        <HomeProducts title="Our Products" subtitle="Hard to choose right products for your pets?" :products="products"
-            @more="productsMore" />
-        <HomePartners />
-        <HomeInfoBanner title="Adoption" subtitle="We need help. so do they." description="Adopt a pet and give it a home,
+        <HomeProducts class="home-products" title="Our Products" subtitle="Hard to choose right products for your pets?"
+            :products="products" @more="productsMore" />
+        <HomePartners class="home-partners" />
+        <HomeInfoBanner class="home-adoption" title="Adoption" subtitle="We need help. so do they." description="Adopt a pet and give it a home,
 it will be love you back unconditionally." :image="require('@/assets/img/info-2.png')" secondary />
         <HomeProducts title="Useful pet knowledge" subtitle="You already know ?" articles :products="articles" />
     </div>
@@ -208,3 +208,14 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@media screen and (max-width: 750px) {
+
+    .home-products,
+    .home-adoption,
+    .home-partners {
+        display: none;
+    }
+}
+</style>

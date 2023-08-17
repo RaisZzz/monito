@@ -1,23 +1,25 @@
 <template>
-    <header class="header">
+    <header class="header" :class="{ opened: menuOpened }">
         <div class="container">
             <div class="header-left">
+                <button class="header__menu-button" @click="toggleMenu">
+                    <span class="header__menu-button-line"></span>
+                    <span class="header__menu-button-line"></span>
+                    <span class="header__menu-button-line"></span>
+                </button>
                 <MainLogo class="header__logo" />
-                <ul class="header-menu">
-                    <li class="header-menu__item" v-for="(item, index) in menu" :key="index">
-                        <a class="header-menu__item-link" :href="item.href">
-                            {{ item.title }}
-                        </a>
-                    </li>
-                </ul>
+                <MainMenu class="header__menu" />
             </div>
             <div class="header-right">
                 <div class="header__search-wrapper">
                     <IconSearch class="header__search-icon" />
                     <input v-model="search" type="text" class="input header__search" placeholder="Search something here">
                 </div>
-                <button class="button">Join the community</button>
-                <UiSelect v-model="currency" :values="currencies" />
+                <button class="button header__join">Join the community</button>
+                <UiSelect class="header__currency" v-model="currency" :values="currencies" />
+                <button class="header__search-button">
+                    <IconSearch class="header__search-button-icon" />
+                </button>
             </div>
         </div>
     </header>
@@ -29,19 +31,15 @@ import IconSearch from '@/components/Icon/IconSearch.vue';
 import UiSelect from '@/components/Ui/UiSelect.vue';
 import CurrencyVND from '@/components/Icon/Currency/CurrencyVND.vue';
 import CurrencyRUB from './Icon/Currency/CurrencyRUB.vue';
+import MainMenu from './MainMenu.vue';
 
 export default {
-    components: { MainLogo, IconSearch, UiSelect },
+    components: { MainLogo, IconSearch, UiSelect, MainMenu },
     data: () => {
         return {
-            menu: [
-                { title: 'Home', href: '#', },
-                { title: 'Category', href: '#', },
-                { title: 'About', href: '#', },
-                { title: 'Contact', href: '#', },
-            ],
             search: '',
             currency: null,
+            menuOpened: false,
             currencies: [
                 {
                     title: 'VND',
@@ -54,6 +52,11 @@ export default {
                     value: 'rub',
                 }
             ]
+        }
+    },
+    methods: {
+        toggleMenu() {
+            this.menuOpened = !this.menuOpened
         }
     },
     created() {
@@ -87,37 +90,6 @@ export default {
     gap: 48px;
 }
 
-.header-menu {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-}
-
-.header-menu__item {
-    position: relative;
-}
-
-.header-menu__item:after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-    transition: var(--transition);
-}
-
-.header-menu__item:hover:after {
-    width: 100%;
-}
-
-.header-menu__item-link {
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
 .header__search-wrapper {
     --icon-width: 20px;
 
@@ -140,7 +112,108 @@ export default {
 
 .header-right {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 14px;
+}
+
+.header__search-button,
+.header__menu-button {
+    display: none;
+}
+
+.header__menu-button {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    padding: 9px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__search-button {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.header__search-button-icon {
+    width: 100%;
+    height: auto;
+}
+
+.header__menu-button-line {
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 1200px) {
+    .header-left {
+        gap: 20px;
+    }
+
+    .header__search {
+        min-width: 0;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .header.opened {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        background-color: var(--secondary-color);
+    }
+
+    .header.opened .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .header.opened .header-left,
+    .header.opened .header-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header.opened .header__logo {
+        margin: 0;
+    }
+
+    .header:not(.opened) .header__menu,
+    .header:not(.opened) .header__search-wrapper,
+    .header:not(.opened) .header__join,
+    .header:not(.opened) .header__currency {
+        display: none;
+    }
+
+    .header__search-button,
+    .header__menu-button {
+        display: flex;
+    }
+
+    .header.opened .header__search-button {
+        display: none;
+    }
+
+    .header-left {
+        width: 100%;
+        flex: 1;
+    }
+
+    .header__logo {
+        margin: 0 auto;
+    }
 }
 </style>

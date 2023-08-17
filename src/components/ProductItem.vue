@@ -3,7 +3,7 @@
         <img :src="product.image" alt="" class="content-box__image" ref="image">
         <div class="content-box-info">
             <p class="content-box__title">{{ product.title }}</p>
-            <div v-if="product?.props" class="product-props">
+            <div v-if="product.props" class="product-props">
                 <div v-for="(key, value) in product.props" :key="key" class="product__prop">
                     {{ key }}: <span class="product__prop-value">{{ value }}</span>
                 </div>
